@@ -1,5 +1,6 @@
 import smtplib
 import random
+import time  # Import the time module
 
 # Mailtrap SMTP server configuration
 print("One!")
@@ -56,7 +57,7 @@ bodies_neutral = [
     "Hope you are doing well. Just wanted to say hi and catch up."
 ]
 
-print("Two!")
+delay_between_emails = 2  # Adjust this as needed
 
 def create_email(sender, receiver, subject, body):
     return f"Subject: {subject}\nTo: {receiver}\nFrom: {sender}\n\n{body}"
@@ -67,24 +68,35 @@ def send_email(server, sender, receiver, message):
     server.sendmail(sender, receiver, message)
 
 # Connect to the SMTP server and send emails
-with smtplib.SMTP(smtp_server, smtp_port) as server:
-    server.starttls()
-    server.login(username, password)
-    
-    for i in range(30):
-        # Randomly choose whether the email is illegal or neutral
-        if random.choice([True, False]):
-            subject = random.choice(subjects_illegal)
-            body = random.choice(bodies_illegal)
-        else:
-            subject = random.choice(subjects_neutral)
-            body = random.choice(bodies_neutral)
+try:
+    # Connect to the SMTP server and send emails
+    with smtplib.SMTP(smtp_server, smtp_port) as server:
+        server.starttls()
+        server.login(username, password)
         
-        sender = random.choice(senders)
-        receiver = random.choice(receivers)
-        
-        email_message = create_email(sender, receiver, subject, body)
-        send_email(server, sender, receiver, email_message)
-        print(f"Sent email {i+1}/30")
+        for i in range(30):
+            if i > 0:
+                print(f"Waiting for {delay_between_emails} seconds before sending the next email.")
+                time.sleep(delay_between_emails)  # Add delay between emails
+            
+            # Randomly choose whether the email is illegal or neutral
+            if random.choice([True, False]):
+                subject = random.choice(subjects_illegal)
+                body = random.choice(bodies_illegal)
+            else:
+                subject = random.choice(subjects_neutral)
+                body = random.choice(bodies_neutral)
+            
+            sender = random.choice(senders)
+            receiver = random.choice(receivers)
+            
+            email_message = create_email(sender, receiver, subject, body)
+            try:
+                send_email(server, sender, receiver, email_message)
+                print(f"Sent email {i+1}/30")
+            except Exception as e:
+                print(f"Failed to send email {i+1}/30: {e}")
 
-print("All emails sent successfully.")
+    print("All emails sent successfully.")
+except Exception as e:
+    print(f"Failed to connect or send emails: {e}")
