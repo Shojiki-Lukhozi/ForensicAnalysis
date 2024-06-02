@@ -6,8 +6,8 @@ import time  # Import the time module
 print("One!")
 smtp_server = "sandbox.smtp.mailtrap.io"
 smtp_port = 2525
-username = "9f2372ccde421c"
-password = "fae3b47d9e88d2"
+username = ""
+password = ""
 
 # Fake email addresses
 senders = [

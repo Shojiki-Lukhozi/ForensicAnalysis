@@ -51,23 +51,23 @@ def search_files(files, query):
 def main():
     # Gather all text files in the current directory
     text_files = [f for f in os.listdir('.') if f.endswith('.txt')]
-    
+  
     # Display initial sentiment analysis of each file
     sentiments = analyze_file_sentiments(text_files)
     for file, sentiment in sentiments.items():
         print(f"File: {file}, Sentiment: {sentiment}")
-    
+  
     # Prompt for search query
     query = input("Enter your search query: ")
-    
+  
     # Search files based on query and synonyms
     results = search_files(text_files, query)
-    
+  
     # Display results
     for file, data in results.items():
         print(f"File: {file}")
         print(f"  Matches: {data['matches']}")
         print(f"  Sentiment: {data['sentiment']}")
-        
+      
 if __name__ == "__main__":
     main()
