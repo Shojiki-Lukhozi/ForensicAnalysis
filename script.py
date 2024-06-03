@@ -27,8 +27,6 @@ def analyze_file_sentiments(files):
     return sentiments
 
 def search_files(files, query):
-    query_sentiment = get_sentiment(query)
-    print(f"Search Query Sentiment: {query_sentiment}")
 
     words = nltk.word_tokenize(query)
     synonyms = {word: get_synonyms(word) for word in words}
@@ -40,9 +38,9 @@ def search_files(files, query):
         with open(file, 'r', encoding='utf-8') as f:
             content = f.read()
             content_sentiment = get_sentiment(content)
-            matches = [word for word in words if word in content]
+            matches = [word.lower() for word in words if word in content.lower()]
             for word, syns in synonyms.items():
-                if any(syn in content for syn in syns):
+                if any(syn in content.lower() for syn in syns):
                     matches.append(word)
             if matches:
                 results[file] = {'matches': matches, 'sentiment': content_sentiment}

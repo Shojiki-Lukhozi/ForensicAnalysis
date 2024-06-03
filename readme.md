@@ -18,3 +18,9 @@ postive sentiment closer to 1
 negative sentiment closer to -1
 neutral sentiment close to 0
 
+
+## ntlk and wordnet 
+
+We use this to lemmatization and synonyms creations
+We pattern match the synonyms in the email sent
+
