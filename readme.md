@@ -12,27 +12,27 @@ in the emailStorage.py and send.pyfile
 
 ## Textblob polarity
 
-This indicates in a text has a postive , negative or neutral sentiment polarity is [-1,1]
+This indicates if a text has a postive, negative or neutral sentiment. Polarity is [-1,1]
 
-postive sentiment closer to 1
-negative sentiment closer to -1
-neutral sentiment close to 0
+Postive sentiment closer to 1
+Negative sentiment closer to -1
+Neutral sentiment close to 0
 
 
 ## ntlk and wordnet 
 
-We use this to lemmatization and synonyms creations
+We use this for lemmatization and synonyms creations
 We pattern match the synonyms in the email sent
 
 # Demo discussions
 
-## proof of some dev environment
+## Proof of some dev environment
 
-show our github repository
+Show our github repository
 
 https://github.com/Shojiki-Lukhozi/ForensicAnalysis
 
-## extent to which we used our own code
+## Extent to which we used our own code
 
 we only used library framework that aided with semantic analysis 
 - nltk which is a nlp library
@@ -40,42 +40,46 @@ we only used library framework that aided with semantic analysis
 
 The rest of the code is ours
 
-70% our code and 30% library code
+- 70% our code  
+- 30% library code
 
-## contribution to digital forensics?
+## Contribution to digital forensics?
 
-This demonstration has a huge potential to contributing to the DF world.
-This demostration displays how time can be saved by using keyword search mechanism that doesn't just search those key words,
+This demonstration has significant potential to contribute to the digital forensics field.
+This demonstration displays how time can be saved by using keyword search mechanism that doesn't just search those key words,
 but expanding the search space into synonyms so even though the exact words were not used but search is able to detect similar words. 
 
-furthermore the tool does semantic analysis , this helps outline the negative and positive sentiment of content, this can help save time for the investigator. The Investigator could use this tool to divide the search space and focus on the content they are interested in.
+Furthermore, the tool performs semantic analysis, which helps outline the negative and positive sentiment of content. This can save time for the investigator by dividing the search space and allowing them to focus on the content of interest.
 
 This can contribute you investigator having potential leads at an early stage of the investigation.
 
-This tool has an extensive use case list,
-
-The tool can be used for any text that needs to be categorised and searched for any investigation.
+The tool has extensive use cases and can be used for any text that needs to be categorised and searched for investigation purposes.
 
 ## Contribution AI makes to your project
 
 AI is the baseline of the solution 
 
-search is based on ai(NLP)
-semantic analysis is based on ai (NLP)
+The search is based on AI (NLP)
+Semantic analysis is based on AI (NLP)
 
 
 ## Capabilities of AI (please complete this point)
 
+AI enhances the ability to understand and process natural language, enabling:
+
+- Advanced search mechanisms using NLP techniques
+- Semantic analysis to gauge the sentiment of text
+- Pattern matching to identify keywords and their synonyms
 
 ## Perform neccessary preprocessing off data for AI capability
 
-- retrieve email from mail server
-- convert data recieve to utf-8
-- form the data into a text file 
-- use AI to analyse the text files
+- Retrieve email from mail server
+- Convert data recieve to utf-8
+- Form the data into a text file 
+- Use AI to analyse the text files
 
 
-## final output and presentation
+## Final output and presentation
 
 - The output is a match to certain out or no match to the output
-- html file has been created to display the output
+- An HTML file has been created to display the output
