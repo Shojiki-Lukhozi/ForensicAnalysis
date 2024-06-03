@@ -114,7 +114,10 @@ def get_emails():
             filename = f"email_{email_index}.txt"
             with open(filename, 'w', encoding='utf-8') as file:  # Explicitly setting encoding
                 file.write(f"Subject: {subject}\n")
+                file.write(f"From:{from_}\n")
+                file.write(f"To:{to_}\n")
                 file.write(f"Body:\n{body}\n")
+                
             
         print(f"Email {email_index} saved to {filename}")
         

@@ -7,6 +7,57 @@ from textblob import TextBlob
 nltk.download('punkt')
 nltk.download('wordnet')
 
+def generate_html_results(results):
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Results</title>
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Search Results</h1>
+        <table>
+            <tr>
+                <th>File</th>
+                <th>Match Percentage</th>
+                <th>Sentiment</th>
+            </tr>
+    """
+
+    for file, data in results.items():
+        html_content += f"""
+            <tr>
+                <td>{file}</td>
+                <td>{data['matches']}</td>
+                <td>{data['sentiment']}</td>
+            </tr>
+        """
+
+    html_content += """
+        </table>
+    </body>
+    </html>
+    """
+
+    with open('search_results.html', 'w') as f:
+        f.write(html_content)
+
 def get_sentiment(text):
     blob = TextBlob(text)
     return blob.sentiment.polarity
@@ -66,6 +117,8 @@ def main():
         print(f"File: {file}")
         print(f"  Matches: {data['matches']}")
         print(f"  Sentiment: {data['sentiment']}")
+    
+    generate_html_results(results)
       
 if __name__ == "__main__":
     main()
