@@ -1,4 +1,4 @@
-change to your own credentials
+## change to your own credentials
 
 in the emailStorage.py and send.pyfile
 
@@ -7,3 +7,14 @@ in the emailStorage.py and send.pyfile
     username=""
     password =""
     mailserver = (pop3_address, pop3_port)
+
+
+
+## Textblob polarity
+
+This indicates in a text has a postive , negative or neutral sentiment polarity is [-1,1]
+
+postive sentiment closer to 1
+negative sentiment closer to -1
+neutral sentiment close to 0
+
